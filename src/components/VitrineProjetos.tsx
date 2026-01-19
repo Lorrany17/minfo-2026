@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQN8JGY-oMiC0GkRvaDTxprgoMFdcg8iqdZrL5xw4LX_DGSbVAKixt_HH0_7ygoNePXFNore4Su1nm_/pub?gid=0&single=true&output=csv";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQU3WG_fstQikyfy-FTQYp94lHqNlRRbBQYco6owLp116HZ8n12GwNadapCuQcnr7VaKZCw8zH_pIX7/pub?output=csv";
 
 export default function VitrineProjetos() {
   const [projetos, setProjetos] = useState<any[]>([]);
@@ -73,13 +73,11 @@ export default function VitrineProjetos() {
       nome: headers.findIndex(
         (h) =>
           (h.includes("nome") ||
-            h.includes("projeto") ||
-            h.includes("startup")) &&
-          !h.includes("descri"),
+            h.includes("projeto")),
       ),
       equipe: headers.findIndex(
         (h) =>
-          h.includes("equipe") ||
+          h.includes("startup") ||
           h.includes("time") ||
           h.includes("integrantes") ||
           h.includes("grupo"),
@@ -300,7 +298,7 @@ export default function VitrineProjetos() {
                       {/* AQUI: Mostra EQUIPE no card, como pedido */}
                       <div className="flex items-center gap-2 text-xs text-gray-500 font-medium mb-3">
                         <Users size={14} className="text-gray-400" />
-                        <span className="truncate">{projeto.equipe}</span>
+                        <span className="truncate">{projeto.equipe || "Equipe não informada"}</span>
                       </div>
 
                       {/* Botão Ver Detalhes */}
