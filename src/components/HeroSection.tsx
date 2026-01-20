@@ -26,7 +26,7 @@ export default function HeroSection() {
           <div className="flex items-center justify-center gap-2 bg-white/5 px-6 py-3 rounded-lg border border-white/10">
             <Calendar className="text-blue-400" size={20} />
             <div className="text-left">
-              <p className="font-bold text-white">19 a 21 de Janeiro</p>
+              <p className="font-bold text-white">19 a 22 de Janeiro</p>
               <p className="text-gray-400 text-xs">
                 Manhã (09h) e Tarde (14h)
               </p>{" "}
