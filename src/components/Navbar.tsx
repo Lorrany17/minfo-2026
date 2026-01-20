@@ -23,7 +23,7 @@ export default function Navbar() {
     { nome: "Início", href: "#" },
     { nome: "Sobre", href: "#sobre" },
     { nome: "Agenda", href: "#agenda" },
-    { nome: "Projetos", href: "#projetos" },
+    { nome: "Projetos", href: "#vitrine" },
     { nome: "Galeria", href: "#galeria" },
   ];
 

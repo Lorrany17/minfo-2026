@@ -15,7 +15,7 @@ import {
 
 const CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQN8JGY-oMiC0GkRvaDTxprgoMFdcg8iqdZrL5xw4LX_DGSbVAKixt_HH0_7ygoNePXFNore4Su1nm_/pub?output=csv";
-
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/1e_j4AyBNsyGDB9oFGB5ZYLxV4U5woiyy0W5qQw_cI48/edit?gid=0#gid=0"
 export default function VitrineProjetos() {
   const [projetos, setProjetos] = useState<any[]>([]);
   const [busca, setBusca] = useState("");
@@ -157,11 +157,19 @@ export default function VitrineProjetos() {
           if (!Object.values(map).includes(index)) {
             const v = clean(valor);
             if (v.startsWith("http") || v.startsWith("www")) {
-              projeto.links.push({
-                label: headersOriginais[index] || "Link",
-                url: v,
-              });
-            }
+  projeto.links.push({
+    label: headersOriginais[index] || "Link",
+    url: v.startsWith("http") ? v : `https://${v}`,
+  });
+}
+
+// PDF clicável no Sheets → aponta pra PLANILHA
+else if (v === "pdf") {
+  projeto.links.push({
+    label: headersOriginais[index] || "PDF",
+    url: SHEET_URL,
+  });
+}
           }
         });
 
@@ -219,14 +227,14 @@ export default function VitrineProjetos() {
   };
 
   return (
-    <section className="py-16 px-4 bg-gray-50 min-h-screen font-sans text-gray-900">
+    <section className="py-16 px-4 bg-gray-50 min-h-screen font-sans text-gray-900" id="vitrine">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Vitrine de Startups
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Soluções inovadoras do IFPI Campus Picos.
+            Conheça mais sobre todas as soluções Inovadoras do IFPI Campus Picos.
           </p>
         </div>
 
