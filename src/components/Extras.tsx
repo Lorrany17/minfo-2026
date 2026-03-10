@@ -57,7 +57,7 @@ export function Galeria() {
         </p>
         
         <a 
-          href="#" // LEMBRE-SE DE COLOCAR O LINK REAL DO DRIVE/FOTOS AQUI DEPOIS
+          href="https://photos.app.goo.gl/6irpx5zGy2fnVRvB6" 
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-3 bg-white text-blue-900 rounded-full font-bold hover:bg-blue-50 transition-colors shadow-lg"
